@@ -1,0 +1,22 @@
+[
+    {
+        "href":"index.html",
+        "text":"Home"
+    },
+    {
+        "href":"prodavnica.html",
+        "text":"Shop"
+    },
+    {
+        "href":"kontakt.html",
+        "text":"Contact"
+    },
+    {
+        "href":"autor.html",
+        "text":"Author"
+    },
+    {
+        "href":"korpa.html",
+        "text":"<i class='fa fa-cart-shopping'></i><span id='brProizvoda'></span>"
+    }
+]

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+    <head> 
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="keywords" content="travel,travel agency,vacation,summer"/>
+        <meta name="description" content="ParadiseTravel is the best travel agency" />
+        <title>Horologia</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <!--icons-->
+        <script src="https://kit.fontawesome.com/104d21a00f.js" crossorigin="anonymous"></script>
+        <!--Botstrap CSS-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"/>
+        <!--css-->
+        <link rel="stylesheet" type="text/css" href="assets/css/style.css"/>
+        <link rel="stylesheet" type="text/css" href="assets/css/responsive.css"/>
+        <!--fonts-->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
+        
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+    <a href="index.html" class="logo"><span class="colr">HOROLOGIA</span></a>
+    <ul class="nav-menu" id="meni">
+     
+  </ul>
+     <div class="hamburger">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+    </nav>
+  </header>
+  
+  <div class="container d-flex justify-content-center" id="forma">
+        <div class="contact-info col-4">
+        <h2 class="sum">Contact info</h2>
+
+        <p class="iconsContact">
+            
+            <i class="fa-solid fa-location-dot"></i><br/>
+            <strong>Location:</strong><br/>
+            Belgrade, Serbia
+        </p>
+
+        <p class="iconsContact">
+          <i class="fa-solid fa-envelope"></i><br/>
+             <strong>Email:</strong><br/>
+            horologia@gmail.com
+        </p>
+
+        <p class="iconsContact">
+          <i class="fa-solid fa-phone"></i><br/>
+          <strong>Phone:</strong><br/>
+            +381 60 123 456
+        </p>
+
+        <p class="iconsContact">
+        <i class="fa-solid fa-clock"></i><br/>
+        <strong>Working hours:</strong><br/>
+            Mon - Fri: 09:00 - 17:00
+        </p>
+    </div>
+   <div class="stilovi col-6">
+        <h2 class="sum">Send us a message</h2>
+            <div class="col-5 w100">
+                <form name="forma-prijava" id="forma-prijava">
+                    <div class="mb-3">
+                        <label for="tbImePrezime" class="form-label">Full name:</label>
+                        <input type="text" id="tbImePrezime" class="form-control"/>
+                        <p class="alert alert-danger mt-3 sakrij"></p>
+                    </div>
+                    <div class="mb-3">
+                        <label for="tbEmail" class="form-label">E-mail:</label>
+                        <input type="text" id="tbEmail" class="form-control"/>
+                        <p class="alert alert-danger mt-3 sakrij"></p>
+                    </div>
+                    <div class="mb-3">
+                        <label for="tbAdresa" class="form-label">Address:</label>
+                        <input type="text" id="tbAdresa" class="form-control"/>
+                        <p class="alert alert-danger mt-3 sakrij"></p>
+                    </div>
+               
+                    <div class="mb-3">
+                        <label for="taNapomena" class="form-label">Note:</label>
+                        <textarea id="taNapomena"  class="form-control"></textarea>
+                        <p class="alert alert-danger mt-3 sakrij"></p>
+                    </div>
+                    <div class="dugme1">
+                        <input type="button" value="Send" class="btn " id="btnPrijava" />
+                    </div>
+                </form>
+            </div>
+            <div id="ispis"></div>
+        </div>
+  </div>
+  
+  
+
+ 
+
+    <footer class="container-fluid">
+        <div class="row row justify-content-center align-items-center py-3">
+          <div class="col-8 col-sm-5 col-lg-3 text-center">
+          <div id="foterlink">
+            
+          </div>
+            <p class="horoDatum mb-0">
+             Horologia © 2024
+            </p>
+          </div>
+          <div class="col-4 col-sm-3 col-lg-2 text-center">
+            <ul class="d-flex justify-content-evenly ps-0 mb-0">
+              <li class="w">Docs:</li>
+             <li>
+              <a href="DokumentacijaHorolo.pdf" ><i class="fa fa-file"></i></a>
+            </li> 
+            <li>
+              <a href="sitemap.xml" target="_blank"><i class="fa-solid fa-sitemap"></i></a>
+            </li> 
+            </ul>
+          </div>
+        </div>
+      </footer>
+
+     <!--JQuery-->
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+     <!--Botstrap JS-->
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+     <script src="assets/js/main.js"></script>     
+</body>
+</html>

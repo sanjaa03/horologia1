@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<urlset xmlns="no3qn">
+   <url>
+     <loc>index</loc>                                   
+     <lastmod>2026-03-26</lastmod>
+     <changefreq>daily</changefreq>
+     <priority>1</priority>
+   </url>
+   <url>
+     <loc>shop</loc>
+     <lastmod>2026-03-26</lastmod>
+     <changefreq>daily</changefreq>
+     <priority>1</priority>
+   </url>
+   <url>
+     <loc>contact</loc>       
+     <lastmod>2026-03-26</lastmod>
+     <changefreq>weekly</changefreq>
+     <priority>0.8</priority>
+   </url>
+      <url>
+     <loc>autor</loc>
+     <lastmod>2026-03-26</lastmod>
+     <changefreq>yearly</changefreq>
+     <priority>0.6</priority>
+   </url>
+      <url>
+     <loc>cart</loc>
+     <lastmod>2026-03-26</lastmod>
+     <changefreq>daily</changefreq>
+     <priority>1</priority>
+   </url>
+</urlset>

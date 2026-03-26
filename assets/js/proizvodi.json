@@ -1,0 +1,466 @@
+[
+    {
+        "id":"1",
+        "naziv":"Casio 'Sports Gear'",
+        "brend":"1",
+        "kategorija":"1",
+        "srcSlika":"assets/img/casioSportsGear.jpg",
+        "cena":{
+            "staraCena":60,
+            "aktuelnaCena":40
+        },
+        "bestseller":true,
+        "specifikacije":[
+            {
+                "naziv":"Alarm",
+                "vrednost":"Yes"
+            },
+            {
+                "naziv":"Analogue/Digital",
+                "vrednost":"Digital"
+            },
+            {
+                "naziv":"Water Resistance",
+                "vrednost":"Water Resistance"
+            },
+            {
+                "naziv":"Primary Material",
+                "vrednost":"Plastic/Resin"
+            }
+        ]
+    },
+    {
+        "id":"2",
+        "naziv":"Women Casio Classic",
+        "brend":"1",
+        "kategorija":"2",
+        "srcSlika":"assets/img/unisexCasioClassic.jpg",
+        "cena":{
+            "staraCena":80,
+            "aktuelnaCena":48
+        },
+        "bestseller":false,
+        "specifikacije":[
+            {
+                "naziv":"Alarm",
+                "vrednost":"No"
+            },
+            {
+                "naziv":"Analogue/Digital",
+                "vrednost":"Digital"
+            },
+            {
+                "naziv":"Water Resistance",
+                "vrednost":"Water Resistance"
+            },
+            {
+                "naziv":"Primary Material",
+                "vrednost":"Plastic/Resin"
+            }
+        ]
+    },
+    {
+        "id":"3",
+        "naziv":"Seiko Conceptual Solar",
+        "brend":"3",
+        "kategorija":"2",
+        "srcSlika":"assets/img/seikoConceptualSolar.jpg",
+        "cena":{
+            "staraCena":null,
+            "aktuelnaCena":480
+        },
+        "bestseller":false,
+        "specifikacije":[
+            {
+                "naziv":"Alarm",
+                "vrednost":"Yes"
+            },
+            {
+                "naziv":"Analogue/Digital",
+                "vrednost":"Digital"
+            },
+            {
+                "naziv":"Backlight",
+                "vrednost":"Yes"
+            },
+            {
+                "naziv":"Water Resistance",
+                "vrednost":"Water Resistance"
+            }
+        ]
+    },
+    {
+        "id":"4",
+        "naziv":"Seiko Anthony",
+        "brend":"3",
+        "kategorija":"1",
+        "srcSlika":"assets/img/seikoAutomaticAutomatic.jpg",
+        "cena":{
+            "staraCena":680,
+            "aktuelnaCena":"480"
+        },
+        "bestseller":false,
+        "specifikacije":[
+            {
+                "naziv":"Weight (g)",
+                "vrednost":"20..00"
+            },
+            {
+                "naziv":"Analogue/Digital",
+                "vrednost":"Digital"
+            },
+            {
+                "naziv":"Primary Material",
+                "vrednost":"Plastic/Resin"
+            },
+            {
+                "naziv":"Water Resistance",
+                "vrednost":"Water Resistance"
+            }
+        ]
+    },
+    {
+        "id":"5",
+        "naziv":"Bulova Marc Anthony",
+        "brend":"5",
+        "kategorija":"1",
+        "srcSlika":"assets/img/bulovaMarcAnthony.jpg",
+        "cena":{
+            "staraCena":680,
+            "aktuelnaCena":480
+        },
+        "bestseller":true,
+        "specifikacije":[
+            {
+                "naziv":"Alarm",
+                "vrednost":"Yes"
+            },
+            {
+                "naziv":"Water Resistance",
+                "vrednost":"Water Resistance"
+            },
+            {
+                "naziv":"Backlight",
+                "vrednost":"Yes"
+            },
+            {
+                "naziv":"Multiple Time Zones Display",
+                "vrednost":"None"
+            }
+        ]
+    },
+    {
+        "id":"6",
+        "naziv":"Bulova Oceanographer GMT Sapphire",
+        "brend":"5",
+        "kategorija":"2",
+        "srcSlika":"assets/img/mensBulovaOcean.jpg",
+        "cena":{
+            "staraCena":null,
+            "aktuelnaCena":1380
+        },
+        "bestseller":false,
+        "specifikacije":[
+            {
+                "naziv":"Alarm",
+                "vrednost":"Yes"
+            },
+            {
+                "naziv":"Analogue/Digital",
+                "vrednost":"Analogue"
+            },
+            {
+                "naziv":"Backlight",
+                "vrednost":"Yes"
+            },
+            {
+                "naziv":"Primary Material",
+                "vrednost":"Stainless Steel"
+            }
+        ]
+    },
+    {
+        "id":"7",
+        "naziv":"Vivienne Westwood Whitehall Watch",
+        "brend":"2",
+        "kategorija":"1",
+        "srcSlika":"assets/img/whitehall.jpg",
+        "cena":{
+            "staraCena":null,
+            "aktuelnaCena":280
+        },
+        "bestseller":true,
+        "specifikacije":[
+            {
+                "naziv":"Alarm",
+                "vrednost":"No"
+            },
+            {
+                "naziv":"Analogue/Digital",
+                "vrednost":"Analogue"
+            },
+            {
+                "naziv":"Backlight",
+                "vrednost":"Yes"
+            },
+            {
+                "naziv":"Water Resistance",
+                "vrednost":"Water Resistance"
+            }
+        ]
+    },
+    {
+        "id":"8",
+        "naziv":"Festina Chronograph Watch",
+        "brend":"4",
+        "kategorija":"1",
+        "srcSlika":"assets/img/festinaChronograph.jpg",
+        "cena":{
+            "staraCena":289,
+            "aktuelnaCena":180
+        },
+        "bestseller":false,
+        "specifikacije":[
+            {
+                "naziv":"Primary Material",
+                "vrednost":"Stainless Steel"
+            },
+            {
+                "naziv":"Backlight",
+                "vrednost":"Yes"
+            },
+            {
+                "naziv":"Multiple Time Zones Display",
+                "vrednost":"None"
+            }
+        ]
+    },
+    {
+        "id":"9",
+        "naziv":"Festina Gold Metal Watch",
+        "brend":"4",
+        "kategorija":"3",
+        "srcSlika":"assets/img/festinaGoldMetal.jpg",
+        "cena":{
+            "staraCena":174,
+            "aktuelnaCena":109
+        },
+        "bestseller":true,
+        "specifikacije":[
+            {
+                "naziv":"Alarm",
+                "vrednost":"Yes"
+            },
+            {
+                "naziv":"Backlight",
+                "vrednost":"Yes"
+            },
+            {
+                "naziv":"Case depth approx.",
+                "vrednost":"8.00mm"
+            }
+        ]
+    },
+    {
+        "id":"10",
+        "naziv":"Unisex Casio MTP",
+        "brend":"1",
+        "kategorija":"3",
+        "srcSlika":"assets/img/unisexCasioMTP.jpg",
+        "cena":{
+            "staraCena":153,
+            "aktuelnaCena":109
+        },
+        "bestseller":false,
+        "specifikacije":[
+            {
+                "naziv":"Alarm",
+                "vrednost":"Yes"
+            },
+            {
+                "naziv":"Analogue/Digital",
+                "vrednost":"Analogue"
+            },
+            {
+                "naziv":"Backlight",
+                "vrednost":"Yes"
+            },
+            {
+                "naziv":"Weight (g)",
+                "vrednost":"109.00"
+            }
+        ]
+    },
+    {
+        "id":"11",
+        "naziv":"Unisex Seiko MTP",
+        "brend":"3",
+        "kategorija":"3",
+        "srcSlika":"assets/img/seikoConceptualWatch.jpg",
+        "cena":{
+            "staraCena":null,
+            "aktuelnaCena":199
+        },
+        "bestseller":false,
+        "specifikacije":[
+            {
+                "naziv":"Alarm",
+                "vrednost":"No"
+            },
+            {
+                "naziv":"Water Resistance",
+                "vrednost":"Water Resistance"
+            },
+            {
+                "naziv":"Primary Material",
+                "vrednost":"Plastic/Resin"
+            }
+        ]
+    },
+    {
+        "id":"12",
+        "naziv":"Ladies Festina Steel",
+        "brend":"4",
+        "kategorija":"2",
+        "srcSlika":"assets/img/ladiesFestinaSteel.jpg",
+        "cena":{
+            "staraCena":289,
+            "aktuelnaCena":199
+        },
+        "bestseller":false,
+        "specifikacije":[
+            {
+                "naziv":"Model Name",
+                "vrednost":"Limehouse"
+            },
+            {
+                "naziv":"Analogue/Digital",
+                "vrednost":"Analogue"
+            },
+            {
+                "naziv":"Backlight",
+                "vrednost":"No"
+            },
+            {
+                "naziv":"Water Resistance",
+                "vrednost":"50m"
+            }
+        ]
+    },
+    {
+        "id":"13",
+        "naziv":"Vivienne Westwood Kensington",
+        "brend":"2",
+        "kategorija":"2",
+        "srcSlika":"assets/img/kensington.jpg",
+        "cena":{
+            "staraCena":null,
+            "aktuelnaCena":349
+        },
+        "bestseller":false,
+        "specifikacije":[
+            {
+                "naziv":"Alarm",
+                "vrednost":"No"
+            },
+            {
+                "naziv":"Model Collection",
+                "vrednost":"SS21"
+            },
+            {
+                "naziv":"Backlight",
+                "vrednost":"Yes"
+            },
+            {
+                "naziv":"Primary Material",
+                "vrednost":"Metal"
+            }
+        ]
+    },
+    {
+        "id":"14",
+        "naziv":"Unsiex Bulova Crystal",
+        "brend":"5",
+        "kategorija":"3",
+        "srcSlika":"assets/img/unisexBulovaCrystal.jpg",
+        "cena":{
+            "staraCena":null,
+            "aktuelnaCena":549
+        },
+        "bestseller":false,
+        "specifikacije":[
+            {
+                "naziv":"Gender",
+                "vrednost":"Unisex"
+            },
+            {
+                "naziv":"Analogue/Digital",
+                "vrednost":"Analogue"
+            },
+            {
+                "naziv":"Backlight",
+                "vrednost":"Yes"
+            },
+            {
+                "naziv":"Primary Material",
+                "vrednost":"Plated Stainless Steel"
+            }
+        ]
+    },
+    {
+        "id":"15",
+        "naziv":"Bloomsbury Blue Watch",
+        "brend":"2",
+        "kategorija":"3",
+        "srcSlika":"assets/img/bloomsbury.jpg",
+        "cena":{
+            "staraCena":236,
+            "aktuelnaCena":189
+        },
+        "bestseller":false,
+        "specifikacije":[
+            {
+                "naziv":"Analogue/Digital",
+                "vrednost":"Analogue"
+            },
+            {
+                "naziv":"Multiple Time Zones Display",
+                "vrednost":"None"
+            },
+            {
+                "naziv":"Water Resistance",
+                "vrednost":"Water Resistance"
+            }
+        ]
+    },
+    {
+        "id":"16",
+        "naziv":"Seiko GPS Solar",
+        "brend":"3",
+        "kategorija":"1",
+        "srcSlika":"assets/img/seikoGpsSolar.jpg",
+        "cena":{
+            "staraCena":2036,
+            "aktuelnaCena":1897
+        },
+        "bestseller":false,
+        "specifikacije":[
+            {
+                "naziv":"Alarm",
+                "vrednost":"Yes"
+            },
+            {
+                "naziv":"Multiple Time Zones Display",
+                "vrednost":"Yes"
+            },
+            {
+                "naziv":"Backlight",
+                "vrednost":"Yes"
+            },
+            {
+                "naziv":"Primary Material",
+                "vrednost":"Plastic/Resin"
+            }
+        ]
+    }
+]

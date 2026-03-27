@@ -18,5 +18,9 @@
     {
         "href":"korpa.html",
         "text":"<i class='fa fa-cart-shopping'></i><span id='brProizvoda'></span>"
+    },
+     {
+        "href":" DokumentacijaHoro.pdf",
+        "text":" <i class='fa fa-file'></i>"
     }
 ]

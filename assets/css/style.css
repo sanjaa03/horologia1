@@ -360,3 +360,11 @@ width:100%;
   margin-top: 15%;
   height: 400px;
 }
+
+#seikoAction{
+  background-color: #a61e1e;
+  color: #fff;
+  text-align: center;
+  padding: 30px 0px;
+  font-size: 20px;
+}

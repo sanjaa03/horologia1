@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<urlset xmlns="no3qn">
+<urlset xmlns="https://sanjaa03.github.io/horologia1/">
    <url>
-     <loc>index</loc>                                   
+     <loc>https://sanjaa03.github.io/horologia1/index.html</loc>                                   
      <lastmod>2026-03-26</lastmod>
      <changefreq>daily</changefreq>
      <priority>1</priority>
    </url>
    <url>
-     <loc>shop</loc>
+     <loc>https://sanjaa03.github.io/horologia1/prodavnica.html</loc>
      <lastmod>2026-03-26</lastmod>
      <changefreq>daily</changefreq>
      <priority>1</priority>
    </url>
    <url>
-     <loc>contact</loc>       
+     <loc>https://sanjaa03.github.io/horologia1/kontakt.html</loc>       
      <lastmod>2026-03-26</lastmod>
      <changefreq>weekly</changefreq>
      <priority>0.8</priority>
    </url>
       <url>
-     <loc>autor</loc>
+     <loc>https://sanjaa03.github.io/horologia1/autor.html</loc>
      <lastmod>2026-03-26</lastmod>
      <changefreq>yearly</changefreq>
      <priority>0.6</priority>
    </url>
       <url>
-     <loc>cart</loc>
+     <loc>https://sanjaa03.github.io/horologia1/korpa.html</loc>
      <lastmod>2026-03-26</lastmod>
      <changefreq>daily</changefreq>
      <priority>1</priority>

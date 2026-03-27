@@ -1,4 +1,4 @@
-var satovi=[];
+var watches=[];
 const BASE_URL="assets/js/";
 
 function ajaxCallBack(fileName,callback){
@@ -15,16 +15,16 @@ function ajaxCallBack(fileName,callback){
 
 window.onload=function(){
    ajaxCallBack("brendovi.json",function(data){
-  ispisForme(data,"brend");
+  displayForm(data,"brend");
  });
  ajaxCallBack("kategorije.json",function(data){
-  ispisForme(data,"pol");
+  displayForm(data,"pol");
  });
- ajaxCallBack("proizvodi.json",ispisProizvoda);
+ ajaxCallBack("proizvodi.json",productsBest);
  ajaxCallBack("proizvodi.json",function(data){
-  satovi=data;
-  ispisProizvodaSvih(satovi);
-  setLS("sviSatovi",satovi);
+  watches=data;
+  displayAllProducts(watches);
+  setLS("sviSatovi",watches);
  });
 
 
@@ -33,11 +33,11 @@ window.onload=function(){
    }
 
  ajaxCallBack("nav.json",function(data){
-  ispisMenija(data);
+  dispalyMenu(data);
   countProducts();
  });
  
-
+seikoAction();
 
 }
 
@@ -55,14 +55,14 @@ document.querySelectorAll(".nav-link").forEach(n => n.addEventListener("click", 
   nav_menu.classList.remove("active");
 }));
 //ispis menija
-function ispisMenija(linkovi){
-  let ispis="";
-  for(let link of linkovi){
-     ispis+=`<li class="nav-item">
+function dispalyMenu(links){
+  let display="";
+  for(let link of links){
+     display+=`<li class="nav-item">
      <a href="${link.href}" class="nav-link">${link.text}</a>
    </li>`
   }
-  document.querySelector("#meni").innerHTML=ispis;
+  document.querySelector("#meni").innerHTML=display;
 }
 
 
@@ -83,45 +83,45 @@ $(document).ready(function() {
 
 
 //ispis best sellera
-function ispisProizvoda(satovi){
-  let ispis="";
-  for(let sat of satovi){
-   if(sat.bestseller){
-   ispis+=`<div class="col-12 col-md-6 col-lg-3 mb-4">
+function productsBest(watches){
+  let display="";
+  for(let watch of watches){
+   if(watch.bestseller){
+   display+=`<div class="col-12 col-md-6 col-lg-3 mb-4">
    <div class="card">
-     <img src="${sat.srcSlika}" class="card-img-top" alt="${sat.naziv}">
+     <img src="${watch.srcSlika}" class="card-img-top" alt="${watch.naziv}">
      <div class="card-body">
-       <h5 class="card-title">${sat.naziv}</h5>
-       <div class="cena">${obradaCene(sat.cena)}</div
-       <ul>${specifikacijaObrada(sat.specifikacije)}</ul>
+       <h5 class="card-title">${watch.naziv}</h5>
+       <div class="cena">${price(watch.cena)}</div
+       <ul>${specifications(watch.specifikacije)}</ul>
      </div>
    </div>
  </div>`
  }
 }
-document.querySelector("#prikazProizvoda").innerHTML=ispis;
+document.querySelector("#prikazProizvoda").innerHTML=display;
   
 }
 
 
 //ispis svih proizvoda
- function ispisProizvodaSvih(satovi){
+ function displayAllProducts(watches){
 
-  let ispis="";
-   satovi=filterBrend(satovi);
-   satovi=filterPol(satovi);
-   satovi=sortiranje(satovi);
-   satovi=filterPretraga(satovi);
-  if(satovi.length>0){
-  for(let sat of satovi){
-   ispis+=`<div class="col-12 col-md-6 col-lg-3 mb-4">
+  let display="";
+   watches=filterBrand(watches);
+   watches=filterPol(watches);
+   watches=sort(watches);
+   watches=filterSearch(watches);
+  if(watches.length>0){
+  for(let w of watches){
+   display+=`<div class="col-12 col-md-6 col-lg-3 mb-4">
    <div class="card">
-     <img src="${sat.srcSlika}" class="card-img-top" alt="${sat.naziv}">
+     <img src="${w.srcSlika}" class="card-img-top" alt="${w.naziv}">
      <div class="card-body">
-       <h5 class="card-title">${sat.naziv}</h5>
-       <ul>${specifikacijaObrada(sat.specifikacije)}</ul>
-        <div class="cena">${obradaCene(sat.cena)}</div>
-       <button type="button"  class="btna" data-id="${sat.id}">
+       <h5 class="card-title">${w.naziv}</h5>
+       <ul>${specifications(w.specifikacije)}</ul>
+        <div class="cena">${price(w.cena)}</div>
+       <button type="button"  class="btna" data-id="${w.id}">
        ADD TO CART
    </button>
      </div>
@@ -130,62 +130,61 @@ document.querySelector("#prikazProizvoda").innerHTML=ispis;
   }
  }
  else{
-  ispis=`<div class=" text-center mt-5">
+  display=`<div class=" text-center mt-5">
                  <h3>No products found.</h3>
                </div>`;
  }
-document.querySelector("#prikazProizvodaSvih").innerHTML=ispis;
+document.querySelector("#prikazProizvodaSvih").innerHTML=display;
 document.querySelectorAll(".btna").forEach(btn => {
     btn.addEventListener("click",function(){
       add(this);
     });
 });
-//$('.btna').click(dodajUKorpu);
 }
 //prover cene
-function obradaCene(stara){
-  let ispis="";
-   if(stara.staraCena != null){
-    ispis+=`<span class="stara">${stara.staraCena}€</span>
-             <span class="aktuelna">${stara.aktuelnaCena}€</span>`
+function price(old){
+  let display="";
+   if(old.staraCena != null){
+    display+=`<span class="stara">${old.staraCena}€</span>
+             <span class="aktuelna">${old.aktuelnaCena}€</span>`
    }
    else{
-    ispis+=`
+    display+=`
     <p></p>
-    <span class="aktuelna">${stara.aktuelnaCena}€</span>`
+    <span class="aktuelna">${old.aktuelnaCena}€</span>`
    }
-   return ispis;
+   return display;
 }
 //obrada specifikacije
-function specifikacijaObrada(specif){
-  let ispis="";
+function specifications(specif){
+  let display="";
   for(let s of specif){
-    ispis+=`<li><b>·</b> ${s.naziv} : ${s.vrednost}</li>`
+    display+=`<li><b>·</b> ${s.naziv} : ${s.vrednost}</li>`
   }
-  return ispis;
+  return display;
 }
 
 //forma za sortiranje
-var brendovi=[];
-var kategorijePol=[];
+//var brands=[];
+//var kategorijePol=[];
 
-var forma=`<form id="forma"><input type="search" name="pretraga" id="pretraga" placeholder="Search products"/>`;
-function ispisForme(podaci,filter){
+var form=`<form id="forma"><input type="search" name="pretraga" id="pretraga" placeholder="Search products"/>`;
+function displayForm(data,filter){
   
   if(filter=="brend"){
-     forma+=`<p class="prodFilter">Brands:</p>`;
-     for(let p of podaci){
-      forma+=`<input type="checkbox" value="${p.id}" name="brendovi" id="brn-${p.id}"/>
+     form+=`<p class="prodFilter">Brands:</p>`;
+     for(let p of data){
+      form+=`<input type="checkbox" value="${p.id}" name="brendovi" id="brn-${p.id}"/>
       <label for="brn-${p.id}">${p.naziv}</label><br/>`
      }
   }
   else if(filter=="pol"){
-    forma+=`<h5 class="mt-5">Gender:</h5>`;
-    for(let p of podaci){
-     forma+=`<input type="checkbox" value="${p.id}" name="pol" id="pol-${p.id}"/>
+    form+=`<h5 class="mt-5">Gender:</h5>`;
+    for(let p of data){
+     form+=`<input type="checkbox" value="${p.id}" name="pol" id="pol-${p.id}"/>
      <label for="pol-${p.id}">${p.naziv}</label><br/>`
     }
-    forma+=`<div class="mt-5">
+    form+=`<div class="mt-5">
     <h5>Sort by:</h5>
     <form>
        <select class="form-control" id="ddlSort">
@@ -199,101 +198,101 @@ function ispisForme(podaci,filter){
     <input type="button" value="Reset filters" id="btnReset" class="my-3"/>
 `
   }
-  document.querySelector("#sortiranjeForma").innerHTML=forma;
-  filtriranje();
+  document.querySelector("#sortiranjeForma").innerHTML=form;
+  filterProducts();
 
 }
 
-var selektovaniBrend=[];
-var selektovaniPol=[];
+var selectedBrand=[];
+var selectedSex=[];
 
-function filtriranje(){
-  var poljeBrend=document.getElementsByName("brendovi");
-  poljeBrend=Array.from(poljeBrend);
-  poljeBrend.forEach(vrsta=>{
-    vrsta.addEventListener("change",function(){
+function filterProducts(){
+  var elementBrand=document.getElementsByName("brendovi");
+  elementBrand=Array.from(elementBrand);
+  elementBrand.forEach(el=>{
+    el.addEventListener("change",function(){
      if(this.checked){
-      selektovaniBrend.push(vrsta.id.substring(4,(vrsta.id).length));
-      ispisProizvodaSvih(satovi);
+      selectedBrand.push(el.id.substring(4,(el.id).length));
+      displayAllProducts(watches);
      }
      else{
-      selektovaniBrend.splice(selektovaniBrend.indexOf(vrsta.id),1);
-      ispisProizvodaSvih(satovi);
+      selectedBrand.splice(selectedBrand.indexOf(el.id),1);
+      displayAllProducts(watches);
      }
     });
   })
 
-  var poljePol=document.getElementsByName("pol");
-  poljePol=Array.from(poljePol);
-  poljePol.forEach(vrsta=>{
-    vrsta.addEventListener("change",function(){
+  var elementSex=document.getElementsByName("pol");
+  elementSex=Array.from(elementSex);
+  elementSex.forEach(el=>{
+    el.addEventListener("change",function(){
      if(this.checked){
-      selektovaniPol.push(vrsta.id.substring(4,(vrsta.id).length));
-      ispisProizvodaSvih(satovi);
+      selectedSex.push(el.id.substring(4,(el.id).length));
+      displayAllProducts(watches);
      }
      else{
-      selektovaniPol.splice(selektovaniPol.indexOf(vrsta.id),1);
-      ispisProizvodaSvih(satovi);
+      selectedSex.splice(selectedSex.indexOf(el.id),1);
+      displayAllProducts(watches);
      }
     });
   })
 
   document.querySelector("#ddlSort").addEventListener("change",function(){
-    ispisProizvodaSvih(satovi);
+    displayAllProducts(watches);
   });
   document.querySelector("#pretraga").addEventListener("keyup", function(){
-    ispisProizvodaSvih(satovi);
+    displayAllProducts(watches);
   });
   document.querySelector("#btnReset").addEventListener("click",resetFIlters);
 }
 
-function filterBrend(proizvodi){
-  if(selektovaniBrend.length==0){
-    return proizvodi;
+function filterBrand(products){
+  if(selectedBrand.length==0){
+    return products;
   }
  let niz=[];
- for(let i=0;i<proizvodi.length;i++){
-  for(let j=0;j<selektovaniBrend.length;j++){
-    if(proizvodi[i].brend.includes(selektovaniBrend[j])){
-      niz.push(proizvodi[i]);
+ for(let i=0;i<products.length;i++){
+  for(let j=0;j<selectedBrand.length;j++){
+    if(products[i].brend.includes(selectedBrand[j])){
+      niz.push(products[i]);
     }
   }
  }
  return niz;
 }
 
-function filterPol(proizvodi){
-  if(selektovaniPol.length==0){
-    return proizvodi;
+function filterPol(products){
+  if(selectedSex.length==0){
+    return products;
   }
  let niz=[];
- for(let i=0;i<proizvodi.length;i++){
-  for(let j=0;j<selektovaniPol.length;j++){
-    if(proizvodi[i].kategorija.includes(selektovaniPol[j])){
-      niz.push(proizvodi[i]);
+ for(let i=0;i<products.length;i++){
+  for(let j=0;j<selectedSex.length;j++){
+    if(products[i].kategorija.includes(selectedSex[j])){
+      niz.push(products[i]);
     }
   }
  }
  return niz;
 }
 //filter pretraga
-function filterPretraga(proizvodi){
-  var unosPretraga=document.querySelector("#pretraga").value.toLowerCase();
-  if(unosPretraga==""){
-    return proizvodi;
+function filterSearch(products){
+  var inputSearch=document.querySelector("#pretraga").value.toLowerCase();
+  if(inputSearch==""){
+    return products;
   }
-   return proizvodi.filter(p=>p.naziv.toLowerCase().includes(unosPretraga));
+   return products.filter(p=>p.naziv.toLowerCase().includes(inputSearch));
 }
 
-function sortiranje(proizvodi){
-  let kopijaP=[...proizvodi];
-  let sortProizvod = [];
+function sort(products){
+  let copyP=[...products];
+  let sortProduct = [];
   let vred = document.querySelector("#ddlSort").value;
   if(vred == "0"){
-      sortProizvod = kopijaP;
+      sortProduct = copyP;
   }
   else{
-      sortProizvod = kopijaP.sort(function(a, b){
+      sortProduct = copyP.sort(function(a, b){
           if(vred == "1"){
               return a.cena.aktuelnaCena - b.cena.aktuelnaCena;
           }
@@ -313,65 +312,65 @@ function sortiranje(proizvodi){
           }
       })
   }
-  return sortProizvod;
+  return sortProduct;
 }
 //kontakt
 if(document.querySelector("#btnPrijava")){
 let taster = document.querySelector("#btnPrijava");
-taster.addEventListener("click", obradaForme);
+taster.addEventListener("click", procesForm);
 
 }
 
-function obradaForme(){
-  var brojGresaka = 0;
-  let objImePrezime,objEmail, objAdresa,objNapomena;
+function procesForm(){
+  var countErr = 0;
+  let objname,objEmail, objAdress,objTextarea;
 
-  objImePrezime = document.querySelector("#tbImePrezime");
+  objname = document.querySelector("#tbImePrezime");
   objEmail = document.querySelector("#tbEmail");
-  objAdresa = document.querySelector("#tbAdresa");
-  objNapomena = document.querySelector("#taNapomena");
+  objAdress = document.querySelector("#tbAdresa");
+  objTextarea = document.querySelector("#taNapomena");
 
-  let reImePrezime,reEmail, reAdresa;
-  reImePrezime = /^[A-Z][a-z]{2,14}(\s[A-Z][a-z]{2,14})+$/;
+  let reName,reEmail, reAdress;
+  reName = /^[A-Z][a-z]{2,14}(\s[A-Z][a-z]{2,14})+$/;
   reEmail = /^[a-zA-Z0-9.!#$%&'*+/=?^_`~-]+@[a-zA-Z0-9-]+(.com)+$/;
-  reAdresa = /^(([A-Z][a-z]{1,15}(\.)?)|([1-9][0-9]{0,2}(\.)?))[a-zA-Z0-9\s\/\-]+$/;
+  reAdress = /^(([A-Z][a-z]{1,15}(\.)?)|([1-9][0-9]{0,2}(\.)?))[a-zA-Z0-9\s\/\-]+$/;
 
-  proveraRegularnimIzrazima(reImePrezime, objImePrezime, "First and Last name must start with uppercase!(Example:Ana Johnson)");
-  proveraRegularnimIzrazima(reEmail, objEmail, "Email must be in format: something@example.com");
-  proveraRegularnimIzrazima(reAdresa, objAdresa, "Address must be in format:");
+  checkRegEx(reName, objname, "First and Last name must start with uppercase!(Example:Ana Johnson)");
+  checkRegEx(reEmail, objEmail, "Email must be in format: something@example.com");
+  checkRegEx(reAdress, objAdress, "Address must be in format:");
 
-  function proveraRegularnimIzrazima(regularni, objekat, poruka){
-      if(!regularni.test(objekat.value)){
-          objekat.nextElementSibling.classList.remove("sakrij");
-          objekat.nextElementSibling.innerHTML = poruka;
-          objekat.classList.add("crvena-bordura");
-          brojGresaka++;
+  function checkRegEx(regex, obj, message){
+      if(!regex.test(obj.value)){
+          obj.nextElementSibling.classList.remove("sakrij");
+          obj.nextElementSibling.innerHTML = message;
+          obj.classList.add("crvena-bordura");
+          countErr++;
       }
       else{
-          objekat.nextElementSibling.classList.add("sakrij");
-          objekat.nextElementSibling.innerHTML = "";
-          objekat.classList.remove("crvena-bordura");
+          obj.nextElementSibling.classList.add("sakrij");
+          obj.nextElementSibling.innerHTML = "";
+          obj.classList.remove("crvena-bordura");
       }
   }
-  if(objNapomena.value.length < 10){
-      objNapomena.nextElementSibling.classList.remove("sakrij");
-      objNapomena.nextElementSibling.innerHTML = "Note must be at least 10 characters long!";
-      objNapomena.classList.add("crvena-bordura");
-      brojGresaka++;
+  if(objTextarea.value.length < 10){
+      objTextarea.nextElementSibling.classList.remove("sakrij");
+      objTextarea.nextElementSibling.innerHTML = "Note must be at least 10 characters long!";
+      objTextarea.classList.add("crvena-bordura");
+      countErr++;
   }
   else{
-      objNapomena.nextElementSibling.classList.add("sakrij");
-      objNapomena.nextElementSibling.innerHTML = "";
-      objNapomena.classList.remove("crvena-bordura");
+      objTextarea.nextElementSibling.classList.add("sakrij");
+      objTextarea.nextElementSibling.innerHTML = "";
+      objTextarea.classList.remove("crvena-bordura");
   }
 
-  if(brojGresaka == 0){
-      let divIspis = document.querySelector("#ispis");
-      divIspis.setAttribute("class", "alert alert-success mt-4");
+  if(countErr == 0){
+      let divDisplay = document.querySelector("#ispis");
+      divDisplay.setAttribute("class", "alert alert-success mt-4");
 
-      let formatZaIspis = `Your message is sent!`;
+      let formatForDisplay = `Your message is sent!`;
 
-      divIspis.innerHTML = formatZaIspis;
+      divDisplay.innerHTML = formatForDisplay;
 
       document.getElementById("forma-prijava").reset();
   }
@@ -379,23 +378,23 @@ function obradaForme(){
 }
 
 function resetFIlters(){
-  selektovaniBrend=[];
-  selektovaniPol=[];
-  let brendovi=document.getElementsByName("brendovi");
-  brendovi=Array.from(brendovi);
-  brendovi.forEach(b => {
+  selectedBrand=[];
+  selectedSex=[];
+  let brands=document.getElementsByName("brendovi");
+  brands=Array.from(brands);
+  brands.forEach(b => {
      b.checked=false
   });
 
-  let polovi=document.getElementsByName("pol");
-  polovi=Array.from(polovi);
-  polovi.forEach(p=>{
+  let sexInput=document.getElementsByName("pol");
+  sexInput=Array.from(sexInput);
+  sexInput.forEach(p=>{
    p.checked=false; 
   });
 
   document.querySelector("#ddlSort").value="0";
   document.querySelector("#pretraga").value="";
-  ispisProizvodaSvih(satovi);
+  displayAllProducts(watches);
 }
 
 //dodaj u LS
@@ -576,5 +575,23 @@ function deleteCart(){
   countProducts();
 }
 
-let godina=new Date().getFullYear();
-document.querySelector(".horoDatum").innerHTML=godina;
+let year=new Date().getFullYear();
+document.querySelector(".horoDatum").innerHTML=year;
+
+function seikoAction(){
+  let today=new Date();
+  let last=new Date("2026-04-25");
+  let html="";
+  if(today<=last){
+    let r=last-today;
+    let day=Math.ceil(r/(1000 * 60 * 60 * 24));
+    html+=`<div class="akcija-tekst">
+            SALE ON SEIKO WATCHES -20%<br/>
+            ONLY IN STORE <br/>
+             ${day} DAYS LEFT!
+         </div>`
+
+  }
+  document.querySelector("#seikoAction").innerHTML=html;
+  
+}
